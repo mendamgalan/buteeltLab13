@@ -1,5 +1,3 @@
-*** Begin Mongolian Self-Evaluation ***
-
 # Өөрийн үнэлгээ — Personal Task Tracker төслийн дүгнэлт
 
 **Төсөл**: Personal Task Tracker (Node.js, Express, SQLite)
@@ -78,4 +76,3 @@
 
 *Өөрийн үнэлгээ бэлтгэгдсэн: 2026 оны 5-р сар*
 
-*** End Mongolian Self-Evaluation ***
