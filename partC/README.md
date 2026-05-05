@@ -1,40 +1,38 @@
 # partC — Эргэцүүлэл (Reflect)
 
-> AI-assisted Personal Task Tracker төслийн үнэлгээ ба сanlyzis
+Энэхүү хавтас нь Personal Task Tracker төслийн III хэсэг — эргэцүүлэл ба дүгнэлтийг агуулна. Энд AI-ыг хэрхэн ашигласан, юу сурагдсан, дараах алхмуудыг хэрхэн хийх талаар товч мэдээлэл байна.
 
 ## Агуулга
 
-| Файл | Зорилго |
-|------|---------|
-| [AI-USAGE-REPORT.md](AI-USAGE-REPORT.md) | AI (Copilot/Claude) хэрэглэлтийн нарийвчилсан тайлан |
-| [SELF-EVALUATION.md](SELF-EVALUATION.md) | Төслийн үнэлгээ ба сур сургалт |
-| [ADR-002-ai-implementation-strategy.md](ADR-002-ai-implementation-strategy.md) | AI-assisted workflow-ийн архитектур шийдэл |
+- [AI-USAGE-REPORT.md](AI-USAGE-REPORT.md): AI (Copilot, Claude) ашиглалтын дэлгэрэнгүй тайлан
+- [SELF-EVALUATION.md](SELF-EVALUATION.md): Төслийн өөрийн үнэлгээ, сургамж
+- [ADR-002-ai-implementation-strategy.md](ADR-002-ai-implementation-strategy.md): AI-assisted workflow-ийн шийдэл, ADR
 
-## Хугацаа: 2-р долоо хоногийн сүүл
+## Хугацаа
 
-PartC нь partB-н хэрэгжүүлэлт дууссаны дараа, төсөл дууслахын өмнө бөглөнө.
+Энэхүү хэсгийг Part B (хэрэгжүүлэлт) дууссаны дараа, төслийн эцсийн үнэлгээ хийхэд бөглөнө. Ерөнхий хугацаа: 2 долоо хоног.
 
 ---
 
-## Үргэлжүүлэх хүний зөвлөмж
+## Хэрэглэгчийн зөвлөмж
 
-Хэрэв энэ төслийг яргалж байгаа бол:
-
-1. **Эхний байрлалыг уншиарай**: [AI-USAGE-REPORT.md](AI-USAGE-REPORT.md) → Copilot/Claude-ийг хэрхэн ашигласан
-2. **Шүүлтийг унших**: [SELF-EVALUATION.md](SELF-EVALUATION.md) → Сургалт, сул талууд
-3. **Архитектур сонголтыг ойлгох**: [ADR-002](ADR-002-ai-implementation-strategy.md) → AI workflow-ийн шийдэлүүд
+1. AI-гийн хэрэглээ ба үр нөлөөг судлахын тулд эхлээд [AI-USAGE-REPORT.md](AI-USAGE-REPORT.md)-г унш.
+2. Өөрийн гүйцэтгэл, сургамжтай танилцахын тулд [SELF-EVALUATION.md](SELF-EVALUATION.md)-г унш.
+3. AI-тай хамтран хөгжүүлэх зарчимтай танилцах бол [ADR-002-ai-implementation-strategy.md](ADR-002-ai-implementation-strategy.md)-г үз.
 
 ---
 
-## Төслийн дэлгэрэнгүй
+## Товч мэдээлэл
 
-- **Наслал**: Node.js 20+ / Express 4.x / SQLite
-- **AI Tools**: GitHub Copilot, Claude (via VS Code Copilot Chat)
-- **Хугацаа**: 2 долоо хоног
-- **Сэдэв**: Personal Task Tracker RESTful API
+- `Runtime`: Node.js 20+
+- `Framework`: Express 4.x
+- `Database`: SQLite (sql.js)
+- `Validation`: Zod
+- `Tests`: Jest + Supertest
 
-Дараах үйл ажиллагаанд AI ашигласан:
-- Архитектур төлөвлөлт (partA)
-- Code generation & review (partB)
-- Test writing & debugging (partB)
-- Documentation & ADRs
+AI-ыг дараахад ашигласан:
+- Архитектур төлөвлөлт (Part A)
+- Код үүсгэлт ба шалгалт (Part B)
+- Тест бичих, дебаг хийх (Part B)
+- Документац ба ADR бичих
+
