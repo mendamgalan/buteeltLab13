@@ -1,6 +1,6 @@
 # AI Planning Session Log — partA
 
-**Огноо:** 2025-01-01  
+**Огноо:** 2026-05-03  
 **Хэрэгсэл:** Claude (claude.ai)  
 **Зорилго:** Stack сонголт, архитектур, CLAUDE.md, ADR-001 бэлдэх
 
@@ -14,14 +14,14 @@
 **Claude-ийн хариу (товчилсон):**
 > 3 stack-ийг харьцуулж үзэхэд AI workflow талаас Node.js+Express давуу байна. Шалтгаан:
 > 1. LLM training data-д Express pattern маш элбэг → hallucination бага
-> 2. `better-sqlite3` synchronous API нь async complexity нэмэхгүй
+> 2. `sql.js` WebAssembly implementation нь хурдан, in-memory + file persistence аргыг ашиглаж болно
 > 3. JS full-stack — frontend/backend нэг хэлтэй
 > FastAPI-ийн built-in OpenAPI сайн ч энэ хэмжээний проектод overkill.
-> **Зөвлөмж: Node.js + Express + SQLite**
+> **Зөвлөмж: Node.js + Express + SQLite (sql.js)**
 
 **Миний шийдвэр:** Зөвшөөрсөн. Node.js сонгосон.
 
-**Hallucination шалгасан:** Claude анх `sqlite3` package санал болгосон. Гэхдээ `better-sqlite3` нь synchronous, хурдан тул илүү тохиромжтой. Баталгаажуулж засав.
+**Hallucination шалгасан:** Claude анх `sqlite3` package санал болгосон. Гэхдээ `sql.js` (WebAssembly-backed) нь production-ready, browser-compatible SQLite implementation тул илүү тохиромжтой. Баталгаажуулж засав.
 
 ---
 
@@ -61,7 +61,7 @@
 > "ADR format-аар Node.js stack сонгосон шийдвэрийг бич. Context, Decision, Rationale, Alternatives, Consequences."
 
 **Claude-ийн хариу (товчилсон):**
-> ADR template боловсруулж өгсөн. Rationale дотор AI codegen давуу тал, setup хурд, synchronous SQLite-ийн тайлбар байсан.
+> ADR template боловсруулж өгсөн. Rationale дотор AI codegen давуу тал, setup хурд, sql.js WebAssembly implementation-ийн тайлбар байсан.
 
 **Өөрчилсөн:** ADR-д "Баталгаажуулалт" хэсэг нэмсэн — жижиг prototype туршсан тухай. Claude анх энэ хэсгийг оруулаагүй байсан.
 
@@ -78,4 +78,4 @@
 | PROJECT.md | ⚠️ Claude outline, би бичсэн |
 | STACK-COMPARISON.md | ✅ AI харьцуулалт, би format хийсэн |
 
-**Гол мэдэгдэл:** Session 1-д Claude `sqlite3` (callback-based) санал болгосон байсан — энэ нь hallucination гэж тооцож болно, учир нь `better-sqlite3` нь sync тул илүү тохиромжтой гэдгийг мэдсэн ч анх хуучин хэвшмэл санал болгосон. ПартC-д дэлгэрэнгүй тайлбарлана.
+**Гол мэдэгдэл:** Session 1-д Claude `sqlite3` (callback-based) санал болгосон байсан — энэ нь hallucination гэж тооцож болно, учир нь `sql.js` (WebAssembly-backed) нь илүү production-ready гэдгийг мэдсэн ч анх хуучин хэвшмэл санал болгосон. ПартC-д дэлгэрэнгүй тайлбарлана.

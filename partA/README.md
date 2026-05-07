@@ -20,7 +20,7 @@
 |---|---|
 | Runtime | Node.js 20+ |
 | Framework | Express 4.x |
-| Database | SQLite (`better-sqlite3`) |
+| Database | SQLite (`sql.js` — WebAssembly-backed) |
 | Validation | Zod |
 | Testing | Jest + Supertest |
 | API Docs | Swagger UI + OpenAPI 3.0 |

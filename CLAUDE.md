@@ -9,7 +9,7 @@ Users can create, read, update, and delete tasks with priorities, labels, due da
 ## Tech Stack
 - **Runtime:** Node.js 20+
 - **Framework:** Express 4.x
-- **Database:** SQLite (via `better-sqlite3`)
+- **Database:** SQLite (via `sql.js` — WebAssembly-backed, in-memory with file persistence)
 - **Testing:** Jest + Supertest
 - **Validation:** Zod
 - **Docs:** Swagger UI (`swagger-ui-express`) + OpenAPI 3.0

@@ -29,7 +29,7 @@ Backend stack сонгохдоо **3 хувилбарыг** харьцуулса
 
 ## Шийдвэр (Decision)
 
-**Node.js 20 + Express 4.x + SQLite (`better-sqlite3`)** ашиглана.
+**Node.js 20 + Express 4.x + SQLite (`sql.js`)** ашиглана.
 
 Нэмэлт хэрэгслүүд:
 - **Zod** — runtime validation
@@ -53,7 +53,7 @@ AI-generated кодод илүү алдаа гаргах эрсдэлтэй ба
 ### 2. Setup хурд
 ```bash
 npm init -y
-npm install express better-sqlite3 zod
+npm install express sql.js zod
 node src/server.js
 ```
 ← Энэ л хангалттай. Virtual environment, WSGI server шаардлагагүй.
@@ -64,10 +64,10 @@ Frontend болон backend хоёулаа JS ашигладаг тул:
 - `fetch()` API browser-д native
 - Нэг хэл — нэг cognitive load
 
-### 4. `better-sqlite3` synchronous API
-Task tracker нь CPU-bound биш, I/O нь энгийн.
-Synchronous SQLite нь async complexity нэмэхгүйгээр хурдан ажилладаг.
-(FastAPI-д `aiosqlite` + `async with` шаардлагатай болно.)
+### 4. `sql.js` in-memory architecture
+Task tracker нь CPU-bound биш, data нь жижиг.
+`sql.js` WebAssembly implementation нь хурдан ажиллах бөгөөд file persistence нь хялбан хийгддэг.
+(FastAPI-д PostgreSQL эсвэл MySQL дээр бүрэн async ажиллагаа шаардлагатай болно.)
 
 ### 5. Mature testing ecosystem
 `jest` + `supertest` хосолсон нь Express API тестлоход хамгийн тодорхой, жишээ элбэг.
@@ -109,5 +109,5 @@ AI workflow-д Express давуу тул татгалзсан.
 
 ## Баталгаажуулалт
 
-Stack сонгохын өмнө `better-sqlite3` + `express` хоёрыг жижиг 30 мөр кодоор туршсан.
+Stack сонгохын өмнө `sql.js` + `express` хоёрыг жижиг 30 мөр кодоор туршсан.
 AI-generated код анхны оролдлогодоо алдаагүй ажиллав → шийдвэр баталгаажсан.

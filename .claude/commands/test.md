@@ -33,7 +33,7 @@ describe('[Module] [Function]', () => {
 
 ### Mocking Rules
 - Mock all DB calls — no real DB writes in unit tests
-- Mock `better-sqlite3` with jest.mock()
+- Mock `sql.js` database instance with jest.mock()
 - Use `supertest` for HTTP endpoint tests
 
 ## Output

@@ -14,7 +14,7 @@ AI-тай хамтран харьцуулсан. Доор тус бүрийн д
 | Хурдан эхлэх | ⭐⭐⭐⭐⭐ | `npm init` + 3 package — 5 минутад ажиллана |
 | Ecosystem | ⭐⭐⭐⭐⭐ | npm дээр бараг бүх зүйл байна |
 | Performance | ⭐⭐⭐⭐ | Event loop — I/O-heavy app-д сайн |
-| SQLite интеграц | ⭐⭐⭐⭐⭐ | `better-sqlite3` — synchronous, хурдан |
+| SQLite интеграц | ⭐⭐⭐⭐ | `sql.js` — WebAssembly, in-memory + file persistence |
 | TypeScript дэмжлэг | ⭐⭐⭐⭐ | JSDoc эсвэл TS байршуулж болно |
 | Deployment | ⭐⭐⭐⭐⭐ | Vercel, Railway, Render — хялбар |
 | AI code gen чанар | ⭐⭐⭐⭐⭐ | Claude/GPT Express кодыг маш сайн мэднэ |
@@ -72,7 +72,7 @@ AI-тай хамтран харьцуулсан. Доор тус бүрийн д
 
 1. **AI code generation чанар** — Claude болон бусад AI хэрэгслүүд Express/Node.js кодыг хамгийн нарийн, template-аар биш, бодит хэлбэрээр үүсгэдэг. Энэ нь AI-assisted workflow-д шууд нөлөөлнө.
 
-2. **Хурдан prototype** — `npm install express better-sqlite3 zod` гэхэд л ажиллаж эхэлнэ. Virtual environment, WSGI server гэх мэт нэмэлт алхам байхгүй.
+2. **Хурдан prototype** — `npm install express sql.js zod` гэхэд л ажиллаж эхэлнэ. Virtual environment, WSGI server гэх мэт нэмэлт алхам байхгүй.
 
 3. **JavaScript full-stack** — Frontend нь мөн JavaScript ашиглаж болох учир нэг хэл дотор бүх зүйлийг авч явах боломж бий. Code sharing (schema validation) ч боломжтой.
 
@@ -81,7 +81,7 @@ AI-тай хамтран харьцуулсан. Доор тус бүрийн д
 5. **Deployment хялбар** — Railway, Render, Vercel Edge Functions дээр Node.js хамгийн хялбар deploy хийдэг.
 
 ### FastAPI-г яагаад сонгоогүй вэ?
-FastAPI нь маш сайн framework — ялангуяа built-in OpenAPI нь давуу тал. Гэхдээ энэ проектод Python virtual environment, async/await + SQLAlchemy ORM-ийн тохиргоо нь нэмэлт complexity нэмдэг. Node.js-ийн `better-sqlite3` нь synchronous бөгөөд тохиргоогүйгээр ажиллах тул судалгааны проектод тохиромжтой.
+FastAPI нь маш сайн framework — ялангуяа built-in OpenAPI нь давуу тал. Гэхдээ энэ проектод Python virtual environment, async/await + SQLAlchemy ORM-ийн тохиргоо нь нэмэлт complexity нэмдэг. Node.js-ийн `sql.js` нь WebAssembly-backed, production-ready SQLite implementation бөгөөд file persistence-тай хэрэглэх шаардлагатай болно, энэ нь судалгааны проектод оновчтой.
 
 ---
 

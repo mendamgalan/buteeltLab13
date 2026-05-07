@@ -23,7 +23,7 @@ graph TD
     end
 
     subgraph Data["🗄️ Data Layer"]
-        DB[better-sqlite3<br/>SQLite Database]
+        DB[sql.js<br/>SQLite Database<br/>(WebAssembly)]
         SQL[(tasks.db<br/>tasks · labels · task_labels)]
     end
 
@@ -170,7 +170,7 @@ partB/
 |---|---|
 | `server.js` | Port-оос сонсох, graceful shutdown |
 | `app.js` | Middleware бүртгэл, route mount |
-| `db/database.js` | `better-sqlite3` connection, schema init |
+| `db/database.js` | `sql.js` connection, persistence, schema init |
 | `routes/tasks.js` | Task endpoint-уудын Router |
 | `routes/labels.js` | Label endpoint-уудын Router |
 | `controllers/taskController.js` | Task бизнес логик (CRUD + filter + search) |

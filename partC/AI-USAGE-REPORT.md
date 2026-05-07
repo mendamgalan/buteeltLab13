@@ -15,7 +15,7 @@
 
 2) Архитектурын шийдэл (ARCHITECTURE.md)
 - Express дээр суурилсан layered архитектур (middleware → routes → controllers → data layer).
-- SQL.js болон better-sqlite3-ийн давуу/сул талыг харьцуулсан.
+- sql.js (WebAssembly-backed SQLite) аргыг сонгосон, in-memory + file persistence ашигласан.
 - OpenAPI/Swagger-д зориулсан документацийн бүтэц төлөвлөсөн.
 
 3) Stack шийдвэр (ADR-001)
