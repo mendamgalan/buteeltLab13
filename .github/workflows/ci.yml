@@ -1,0 +1,55 @@
+name: CI — Task Tracker
+
+# main branch-д push эсвэл PR үүсгэхэд ажиллана
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  test:
+    name: Test & Lint
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Код татах
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Node.js тохируулах
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: partB/package-lock.json
+
+      # 3. Dependencies суулгах
+      - name: Install dependencies
+        working-directory: partB
+        run: npm ci
+
+      # 4. Тест ажиллуулах
+      - name: Run tests
+        working-directory: partB
+        run: npm test
+        env:
+          NODE_ENV: test
+          DB_PATH: ./data/test.db
+
+      # 5. OpenAPI файл байгаа эсэх шалгах
+      - name: Check openapi.yaml exists
+        run: test -f partB/openapi.yaml && echo "✅ openapi.yaml found" || exit 1
+
+      # 6. YAML хүчинтэй эсэх шалгах
+      - name: Validate openapi.yaml
+        working-directory: partB
+        run: |
+          npm install --save-dev js-yaml --silent
+          node -e "
+            const yaml = require('js-yaml');
+            const fs = require('fs');
+            yaml.load(fs.readFileSync('openapi.yaml', 'utf8'));
+            console.log('✅ openapi.yaml is valid');
+          "
